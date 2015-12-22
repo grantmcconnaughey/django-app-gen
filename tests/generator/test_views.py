@@ -8,7 +8,8 @@ from tests.models import Question
 class ViewsGeneratorTests(unittest.TestCase):
 
     def test_generate_views_for_model_creates_form_code(self):
-        expected = """from django.views.generic import TemplateView, ListView
+        expected = """from django.core.urlresolvers import reverse_lazy
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from tests.models import Question
@@ -18,18 +19,25 @@ class QuestionList(ListView):
     model = Question
 
 
+class QuestionDetail(DetailView):
+    model = Question
+
+
 class QuestionCreate(CreateView):
     model = Question
     fields = ('choice', 'id', 'question_text', 'pub_date', )
+    success_url = reverse_lazy('tests:list')
 
 
 class QuestionUpdate(UpdateView):
     model = Question
     fields = ('choice', 'id', 'question_text', 'pub_date', )
+    success_url = reverse_lazy('tests:list')
 
 
 class QuestionDelete(DeleteView):
     model = Question
+    success_url = reverse_lazy('tests:list')
 """
 
         actual = ViewsGenerator(Question).generate()

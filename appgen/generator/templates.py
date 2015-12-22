@@ -27,7 +27,10 @@ def generate_delete_template(model_class,
 
 def generate_list_template(model_class,
                            template_name='appgen/html/list.html'):
-    context = {'model_name': model_class.__name__}
+    context = {
+        'model_name': model_class.__name__,
+        'field_names': [f.name for f in model_class._meta.get_fields()],
+    }
     return render_template(template_name, context)
 
 

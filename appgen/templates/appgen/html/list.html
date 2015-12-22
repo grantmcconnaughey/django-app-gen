@@ -1,0 +1,24 @@
+{% load appgen_tags %}<h1>{{ model_name }} List</h1>
+
+<table class="{{ model_name|lower}}-table">
+    <thead>
+        <tr>
+            {% for field in field_names %}
+            <th>{{ field|capfirst }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% verbatim %}
+        {% for object in object_list %}
+        {% endverbatim %}
+            <tr>
+                {% for field in field_names %}
+                <td>{% start_var %} object.{{ field }} {% end_var %}</td>
+                {% endfor %}
+            </tr>
+        {% verbatim %}
+        {% endfor %}
+        {% endverbatim %}
+    </tbody>
+</table>

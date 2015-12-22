@@ -49,6 +49,37 @@ class TemplatesGeneratorTests(unittest.TestCase):
 
         self.assertIn('<input type="submit" value="Submit"></input>', result)
 
+    def test_list_has_header(self):
+        result = generate_list_template(Question)
+
+        self.assertIn('<h1>Question List</h1>', result)
+
+    def test_list_has_table(self):
+        result = generate_list_template(Question)
+
+        self.assertIn('<table class="question-table">', result)
+
+    def test_list_has_headers(self):
+        result = generate_list_template(Question)
+
+        self.assertIn('<th>Id</th>', result)
+        self.assertIn('<th>Choice</th>', result)
+        self.assertIn('<th>Question_text</th>', result)
+        self.assertIn('<th>Pub_date</th>', result)
+
+    def test_list_has_data(self):
+        result = generate_list_template(Question)
+
+        self.assertIn('<td>{{ object.id }}</td>', result)
+        self.assertIn('<td>{{ object.choice }}</td>', result)
+        self.assertIn('<td>{{ object.question_text }}</td>', result)
+        self.assertIn('<td>{{ object.pub_date }}</td>', result)
+
+    def test_list_loops_through_object_list(self):
+        result = generate_list_template(Question)
+
+        self.assertIn('{% for object in object_list %}', result)
+
     def test_form_contains_form_html(self):
         result = generate_form_template(Question)
 

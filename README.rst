@@ -10,22 +10,6 @@ django-app-gen
 
 Generate CRUD views, templates, URLs, and tests for a model. For Django 1.8+ and Python 2.7/3.4+.
 
-Usage
------
-
-Generate views (with tests)...::
-
-    python manage.py generate-views {model_name}
-
-templates...::
-
-    python manage.py generate-templates {model_name}
-
-or everything.::
-
-    python manage.py generate-all {model_name}
-
-
 Documentation
 -------------
 
@@ -38,9 +22,17 @@ Install django-app-gen::
 
     pip install django-app-gen
 
-Then use it in a project::
+Then generate views (with tests)...::
 
-    import appgen
+    python manage.py generate-views {model_name}
+
+Generate templates...::
+
+    python manage.py generate-templates {model_name}
+
+Or generate everything.::
+
+    python manage.py generate-all {model_name}
 
 Features
 --------

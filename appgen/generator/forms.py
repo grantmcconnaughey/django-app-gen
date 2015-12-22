@@ -4,6 +4,7 @@ from appgen.generator import Generator
 class FormsGenerator(Generator):
 
     template_name = 'appgen/python/forms.py'
+    file_name = 'forms.py'
 
     def get_extra_context(self):
         model_name = self.model_class.__name__

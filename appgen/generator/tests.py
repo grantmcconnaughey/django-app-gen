@@ -4,6 +4,7 @@ from appgen.generator import Generator
 class TestsGenerator(Generator):
 
     template_name = 'appgen/python/tests.py'
+    file_name = 'tests.py'
 
     def get_extra_context(self):
         model_name = self.model_class.__name__

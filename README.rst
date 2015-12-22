@@ -8,7 +8,7 @@ django-app-gen
 .. image:: https://coveralls.io/repos/grantmcconnaughey/django-app-gen/badge.svg?branch=master&service=github
   :target: https://coveralls.io/github/grantmcconnaughey/django-app-gen?branch=master
 
-Generate CRUD views, templates, URLs, and tests for a model. For Django 1.8+ and Python 2.7/3.3+.
+Generate CRUD views, templates, forms, URLs, and tests for a model. For Django 1.8+ and Python 2.7/3.3+.
 
 Documentation
 -------------
@@ -22,17 +22,18 @@ Install django-app-gen::
 
     pip install django-app-gen
 
-Then generate views (with tests)...::
+Create a model in your app's models.py file::
 
-    python manage.py generate-views {model_name}
+    from django.db import models
 
-Generate templates...::
 
-    python manage.py generate-templates {model_name}
+    class Question(models.Model):
+        question_text = models.CharField(max_length=200)
+        pub_date = models.DateTimeField('date published')
 
-Or generate everything.::
+Then generate your views, templates, forms, URLs, and tests.::
 
-    python manage.py generate-all {model_name}
+    python manage.py generate_all Question
 
 Features
 --------

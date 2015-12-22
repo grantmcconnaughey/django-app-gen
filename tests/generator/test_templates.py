@@ -27,6 +27,28 @@ class TemplatesGeneratorTests(unittest.TestCase):
 
         self.assertIn("{% include 'appgen/html/_form.html' %}", result)
 
+    def test_detail_contains_header(self):
+        result = generate_detail_template(Question)
+
+        self.assertIn("<h1>{{ object }}</h1>", result)
+
+    def test_detail_has_field_labels(self):
+        result = generate_detail_template(Question)
+
+        self.assertIn('<span id="id-label" class="property-label">Id</span>', result)
+        self.assertIn('<span id="choice-label" class="property-label">Choice</span>', result)
+        self.assertIn('<span id="question_text-label" class="property-label">Question_text</span>',
+                      result)
+        self.assertIn('<span id="pub_date-label" class="property-label">Pub_date</span>', result)
+
+    def test_detail_has_field_values(self):
+        result = generate_detail_template(Question)
+
+        self.assertIn('<span aria-labelledby="id-label" class="property-value">{{ object.id }}</span>', result)
+        self.assertIn('<span aria-labelledby="choice-label" class="property-value">{{ object.choice }}</span>', result)
+        self.assertIn('<span aria-labelledby="question_text-label" class="property-value">{{ object.question_text }}</span>', result)
+        self.assertIn('<span aria-labelledby="pub_date-label" class="property-value">{{ object.pub_date }}</span>', result)
+
     def test_delete_has_form(self):
         result = generate_delete_template(Question)
 

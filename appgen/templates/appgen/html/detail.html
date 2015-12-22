@@ -1,0 +1,14 @@
+{% load appgen_tags %}<h1>{% verbatim %}{{ object }}{% endverbatim %}</h1>
+
+<div>
+    <ol class="property-list">
+        {% for field in field_names %}
+            {% for field in field_names %}
+            <li>
+                <span id="{{ field }}-label" class="property-label">{{ field|capfirst }}</span>
+                <span aria-labelledby="{{ field }}-label" class="property-value">{% start_var %} object.{{ field }} {% end_var %}</span>
+            </li>
+            {% endfor %}
+        {% endfor %}
+    </ol>
+</div>

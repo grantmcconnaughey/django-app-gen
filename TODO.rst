@@ -8,6 +8,7 @@ Before 1.0
 * Create templates generator.
 * Remove unscores from table header names.
 * Limit list.html template to n number of columns.
+* Format many-to-many, array, and date fields on detail.html
 * Create tests generator.
 * Auto-run generated tests.
 * Create URLs generator.

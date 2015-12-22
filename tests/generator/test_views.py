@@ -1,6 +1,6 @@
 import unittest
 
-from appgen.generator.views import generate_views_for_model
+from appgen.generator.views import ViewsGenerator
 
 from tests.models import Question
 
@@ -32,6 +32,6 @@ class QuestionDelete(DeleteView):
     model = Question
 """
 
-        actual = generate_views_for_model(Question)
+        actual = ViewsGenerator(Question).generate()
 
         self.assertEqual(expected, actual)

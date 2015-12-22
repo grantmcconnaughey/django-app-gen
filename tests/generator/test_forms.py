@@ -1,6 +1,6 @@
 import unittest
 
-from appgen.generator.forms import generate_form_for_model
+from appgen.generator.forms import FormsGenerator
 
 from tests.models import Question
 
@@ -19,6 +19,6 @@ class QuestionForm(forms.ModelForm):
         fields = ('choice', 'id', 'question_text', 'pub_date', )
 """
 
-        actual = generate_form_for_model(Question)
+        actual = FormsGenerator(Question).generate()
 
         self.assertEqual(expected, actual)

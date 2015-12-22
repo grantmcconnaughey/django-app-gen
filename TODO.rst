@@ -15,6 +15,7 @@ Before 1.0
 * Create generate-views management command.
 * Create generate-templates management command.
 * Create generate-all management command.
+* Add command to copy templates to project.
 * Create documentation.
 * Set up on Read The Docs.
 

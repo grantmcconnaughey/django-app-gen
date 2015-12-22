@@ -2,10 +2,7 @@
 django-app-gen
 =============================
 
-.. image:: https://badge.fury.io/py/django-app-gen.png
-    :target: https://badge.fury.io/py/django-app-gen
-
-.. image:: https://travis-ci.org/grantmcconnaughey/django-app-gen.png?branch=master
+.. image:: https://travis-ci.org/grantmcconnaughey/django-app-gen.svg?branch=master
     :target: https://travis-ci.org/grantmcconnaughey/django-app-gen
 
 .. image:: https://coveralls.io/repos/grantmcconnaughey/django-app-gen/badge.svg?branch=master&service=github

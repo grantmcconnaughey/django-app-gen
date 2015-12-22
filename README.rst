@@ -19,7 +19,7 @@ Generate views (with tests)...::
 
 templates...::
 
-    python manage.py generate-views {model_name}
+    python manage.py generate-templates {model_name}
 
 or everything.::
 

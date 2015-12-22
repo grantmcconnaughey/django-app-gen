@@ -8,6 +8,9 @@ django-app-gen
 .. image:: https://travis-ci.org/grantmcconnaughey/django-app-gen.png?branch=master
     :target: https://travis-ci.org/grantmcconnaughey/django-app-gen
 
+.. image:: https://coveralls.io/repos/grantmcconnaughey/django-app-gen/badge.svg?branch=master&service=github
+  :target: https://coveralls.io/github/grantmcconnaughey/django-app-gen?branch=master
+
 Generate CRUD views, templates, URLs, and tests for a model.
 
 Usage

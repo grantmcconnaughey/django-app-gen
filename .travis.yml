@@ -7,11 +7,11 @@ python:
   - 3.5
 
 before_install:
-  - pip install codecov
+  - pip install coveralls
 
 install:
   - pip install -e .
-  - pip install -r tests/requirements.txt
+  - pip install -r requirements-test.txt
   - pip install Django==${DJANGO}
 
 script: coverage run --source appgen runtests.py
@@ -28,4 +28,4 @@ matrix:
       env: DJANGO=1.8.7
 
 after_success:
-  - codecov
+  - coveralls

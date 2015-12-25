@@ -86,8 +86,8 @@ class TemplatesGeneratorTests(unittest.TestCase):
 
         self.assertIn('<th>Id</th>', result)
         self.assertIn('<th>Choice</th>', result)
-        self.assertIn('<th>Question_text</th>', result)
-        self.assertIn('<th>Pub_date</th>', result)
+        self.assertIn('<th>Question Text</th>', result)
+        self.assertIn('<th>Pub Date</th>', result)
 
     def test_list_has_data(self):
         result = ListTemplateGenerator(Question).generate()

@@ -2,6 +2,10 @@
 django-app-gen
 =============================
 
+.. image:: https://readthedocs.org/projects/django-app-gen/badge/?version=latest
+    :target: http://django-app-gen.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://travis-ci.org/grantmcconnaughey/django-app-gen.svg?branch=master
     :target: https://travis-ci.org/grantmcconnaughey/django-app-gen
 

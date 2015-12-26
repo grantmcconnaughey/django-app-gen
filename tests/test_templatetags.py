@@ -1,5 +1,7 @@
 import unittest
 
+from django.utils.six import python_2_unicode_compatible
+
 from appgen.templatetags import appgen_tags
 
 
@@ -30,10 +32,11 @@ class TemplateTagTests(unittest.TestCase):
                          'Hello World')
 
     def test_table_header_converts_objects_to_strs(self):
+        @python_2_unicode_compatible
         class TestObj(object):
             name = "hello_world"
 
-            def __unicode__(self):
+            def __str__(self):
                 return self.name
 
         obj = TestObj()

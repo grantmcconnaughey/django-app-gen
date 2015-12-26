@@ -7,6 +7,8 @@ Before 1.0
 
 * Auto-run generated tests.
 * Create generate_all management command.
+    * Handle case where there are two models with same name in different apps.
+    * Handle case where file already exists (backup?).
 * Add command to copy templates to project.
 * Create documentation for management commands.
 * Create documentation for API.

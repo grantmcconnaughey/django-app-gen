@@ -52,9 +52,17 @@ class Generator(object):
     def generate_file(self, backup=True):
         file_content = self.generate()
         file_path = self.get_full_path()
+
+        # File already exists. Back it up.
         if os.path.exists(file_path) and backup:
             backup_name = file_path + '.bak'
             os.rename(file_path, backup_name)
+
+        file_path_dir = os.path.split(file_path)[0]
+        if not os.path.exists(file_path_dir):
+            # The directory to place the file in does not exist. Create it.
+            os.makedirs(file_path_dir)
+
         with open(file_path, 'w') as f:
             f.write(file_content.encode('utf-8'))
         return True

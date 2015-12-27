@@ -1,8 +1,7 @@
 <form action="" method="post" class="{{ model_name|lower }}-form">
     {% verbatim %}
     {{ form.as_p }}
-    {% csrf_token %}
-    {% endverbatim %}
+    {% csrf_token %}{% endverbatim %}
 
     <input type="submit" value="Submit"></input>
 <form>

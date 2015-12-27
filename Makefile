@@ -23,17 +23,23 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 
 clean-tests:
-	rm tests/_form.html
-	rm tests/create.html
-	rm tests/delete.html
-	rm tests/detail.html
-	rm tests/forms.py
-	rm tests/list.html
-	rm tests/tests.py
-	rm tests/update.html
-	rm tests/urls.py
-	rm tests/urls.py.bak tests/urls.py
-	rm tests/views.py
+	rm -f tests/_form.html
+	rm -f tests/create.html
+	rm -f tests/update.html
+	rm -f tests/delete.html
+	rm -f tests/detail.html
+	rm -f tests/list.html
+	rm -f tests/templates/tests/_form.html
+	rm -f tests/templates/tests/create.html
+	rm -f tests/templates/tests/update.html
+	rm -f tests/templates/tests/delete.html
+	rm -f tests/templates/tests/detail.html
+	rm -f tests/templates/tests/list.html
+	rm -f tests/forms.py
+	rm -f tests/tests.py
+	rm -f tests/urls.py
+	mv -f tests/urls.py.bak tests/urls.py
+	rm -f tests/views.py
 
 lint:
 	flake8 appgen tests

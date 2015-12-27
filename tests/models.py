@@ -1,3 +1,6 @@
+"""
+Models used solely for testing.
+"""
 from django.db import models
 
 

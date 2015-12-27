@@ -1,6 +1,7 @@
 import inspect
 import os
 
+from django.core.management.base import CommandError
 from django.template.loader import render_to_string
 
 
@@ -19,6 +20,7 @@ class Generator(object):
     def __init__(self, model_class=None, file_name=''):
         self.model_class = model_class
         self.app_label = model_class._meta.app_label
+        self.fields = model_class._meta.get_fields()
 
     def generate(self):
         return render_to_string(self.get_template_name(), self.get_context())
@@ -26,7 +28,7 @@ class Generator(object):
     def get_context(self):
         context = {
             'model_name': self.model_class.__name__,
-            'field_names': [f.name for f in self.model_class._meta.get_fields()],
+            'field_names': [f.name for f in self.fields],
             'app_label': self.app_label,
         }
         context.update(self.get_extra_context())
@@ -47,12 +49,12 @@ class Generator(object):
         app_dir = os.path.split(model_path)[0]
         return os.path.join(app_dir, self.get_file_name())
 
-    def generate_file(self):
-        try:
-            file_content = self.generate()
-            file_path = self.get_full_path()
-            with open(file_path, 'w') as f:
-                f.write(file_content.encode('utf-8'))
-            return True
-        except KeyError:
-            raise CommandError("Invalid configuration.")
+    def generate_file(self, backup=True):
+        file_content = self.generate()
+        file_path = self.get_full_path()
+        if os.path.exists(file_path) and backup:
+            backup_name = file_path + '.bak'
+            os.rename(file_path, backup_name)
+        with open(file_path, 'w') as f:
+            f.write(file_content.encode('utf-8'))
+        return True

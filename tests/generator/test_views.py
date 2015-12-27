@@ -12,7 +12,8 @@ class ViewsGeneratorTests(unittest.TestCase):
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from tests.models import Question
+from .forms import QuestionForm
+from .models import Question
 
 
 class QuestionList(ListView):
@@ -25,13 +26,13 @@ class QuestionDetail(DetailView):
 
 class QuestionCreate(CreateView):
     model = Question
-    fields = ('choice', 'id', 'question_text', 'pub_date', )
+    form_class = QuestionForm
     success_url = reverse_lazy('tests:list')
 
 
 class QuestionUpdate(UpdateView):
     model = Question
-    fields = ('choice', 'id', 'question_text', 'pub_date', )
+    form_class = QuestionForm
     success_url = reverse_lazy('tests:list')
 
 

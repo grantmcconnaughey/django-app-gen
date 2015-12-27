@@ -1,6 +1,6 @@
 from django import forms
 
-{{ model_import }}
+from .models import {{ model_name }}
 
 
 class {{ model_name }}Form(forms.ModelForm):

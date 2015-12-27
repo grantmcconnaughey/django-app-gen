@@ -10,7 +10,7 @@ class FormsGeneratorTests(unittest.TestCase):
     def test_generate_form_for_model_creates_form_code(self):
         expected = """from django import forms
 
-from tests.models import Question
+from .models import Question
 
 
 class QuestionForm(forms.ModelForm):

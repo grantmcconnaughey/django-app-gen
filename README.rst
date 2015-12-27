@@ -39,11 +39,6 @@ Then generate your views, templates, forms, URLs, and tests.::
 
     python manage.py generate_all Question
 
-Features
---------
-
-* TODO
-
 Running Tests
 --------------
 

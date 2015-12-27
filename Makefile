@@ -22,6 +22,19 @@ clean-pyc:
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 
+clean-tests:
+	rm tests/_form.html
+	rm tests/create.html
+	rm tests/delete.html
+	rm tests/detail.html
+	rm tests/forms.py
+	rm tests/list.html
+	rm tests/tests.py
+	rm tests/update.html
+	rm tests/urls.py
+	rm tests/urls.py.bak tests/urls.py
+	rm tests/views.py
+
 lint:
 	flake8 appgen tests
 

@@ -39,6 +39,14 @@ Then generate your views, templates, forms, URLs, and tests.::
 
     python manage.py generate_all Question
 
+Add the new URLs to your root ``urls.py`` file. The generated templates and ``views.py`` files assume your URLs are namespaced by your app's name::
+
+    urlpatterns = [
+        # ...
+        url(r"^app_name", include("app_name.urls", namespace="app_name")),
+        # ...
+    ]
+
 Running Tests
 --------------
 

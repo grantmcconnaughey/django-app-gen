@@ -2,10 +2,15 @@
 import os
 import sys
 
+
+
+
 try:
     from django.conf import settings
     from django.test.utils import get_runner
 
+    
+    
     settings.configure(
         DEBUG=True,
         USE_TZ=True,
@@ -26,8 +31,12 @@ try:
         MIDDLEWARE_CLASSES=(),
     )
 
+    
+    
     try:
         import django
+        
+        
         setup = django.setup
     except AttributeError:
         pass
@@ -40,9 +49,17 @@ except ImportError:
     raise ImportError("To fix this error, run: pip install -r requirements-test.txt")
 
 
+    
+    
 if __name__ == "__main__":
     sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
+    
+    
     from django.core.management import execute_from_command_line
 
     execute_from_command_line(sys.argv)
+
+    
+    
+    
